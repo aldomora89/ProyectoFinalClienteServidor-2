@@ -37,14 +37,19 @@
                           <Component id="lblRutina" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtFIdentificacion" max="32767" attributes="0"/>
-                          <Component id="txtFEdad" alignment="0" pref="134" max="32767" attributes="0"/>
-                          <Component id="txtFMesesEnElGym" pref="134" max="32767" attributes="0"/>
-                          <Component id="lblTarifaNumero" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="txtFName" alignment="0" pref="134" max="32767" attributes="0"/>
-                          <Component id="btnRutina" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFEdad" alignment="0" pref="217" max="32767" attributes="0"/>
+                          <Component id="txtFName" alignment="0" pref="217" max="32767" attributes="0"/>
                           <Component id="lblFechaDePagoNumero" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFMesesEnElGym" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblTarifaNumero" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="btnRutina" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -52,7 +57,7 @@
                       <Component id="lblNombreGrande" min="-2" pref="378" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
