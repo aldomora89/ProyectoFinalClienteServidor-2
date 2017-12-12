@@ -42,7 +42,6 @@
                           <Component id="txtFEdad" alignment="0" pref="217" max="32767" attributes="0"/>
                           <Component id="txtFName" alignment="0" pref="217" max="32767" attributes="0"/>
                           <Component id="lblFechaDePagoNumero" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtFMesesEnElGym" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblTarifaNumero" min="-2" pref="79" max="-2" attributes="0"/>
@@ -50,6 +49,7 @@
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="lblMesesNumero" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -66,7 +66,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblNombreGrande" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtFIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblMeses" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFMesesEnElGym" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMesesNumero" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -169,8 +169,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtFEdad">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtFMesesEnElGym">
-    </Component>
     <Component class="javax.swing.JLabel" name="lblTarifaNumero">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -202,6 +200,14 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Nombre del Cliente"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMesesNumero">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Meses en el Gimnasio"/>
       </Properties>
     </Component>
   </SubComponents>

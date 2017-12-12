@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
  */
 public class Administrador extends Persona {
     
-    public Administrador(String name, int age, int nivelDeUsuario, int id) {
-        super(name, age, nivelDeUsuario, id);
+    public Administrador(String name, String password, int age, int nivelDeUsuario, int id) {
+        super(name, password, age, nivelDeUsuario, id);
     }
  
     

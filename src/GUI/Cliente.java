@@ -16,7 +16,6 @@ public class Cliente extends javax.swing.JFrame {
      */
     public Cliente() {
         initComponents();
-        this.txtFMesesEnElGym.setVisible(false);
     }
 
     /**
@@ -38,11 +37,11 @@ public class Cliente extends javax.swing.JFrame {
         txtFIdentificacion = new javax.swing.JTextField();
         txtFName = new javax.swing.JTextField();
         txtFEdad = new javax.swing.JTextField();
-        txtFMesesEnElGym = new javax.swing.JTextField();
         lblTarifaNumero = new javax.swing.JLabel();
         lblFechaDePagoNumero = new javax.swing.JLabel();
         btnRutina = new javax.swing.JButton();
         lblNombreGrande = new javax.swing.JLabel();
+        lblMesesNumero = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +83,9 @@ public class Cliente extends javax.swing.JFrame {
         lblNombreGrande.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreGrande.setText("Nombre del Cliente");
 
+        lblMesesNumero.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblMesesNumero.setText("Meses en el Gimnasio");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,12 +108,12 @@ public class Cliente extends javax.swing.JFrame {
                             .addComponent(txtFEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                             .addComponent(txtFName, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                             .addComponent(lblFechaDePagoNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtFMesesEnElGym, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblTarifaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnRutina))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lblMesesNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(lblNombreGrande, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -122,7 +124,7 @@ public class Cliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblNombreGrande)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdentificacion)
                     .addComponent(txtFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,7 +139,7 @@ public class Cliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMeses)
-                    .addComponent(txtFMesesEnElGym, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblMesesNumero))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTarifa)
@@ -202,6 +204,7 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblFechaDePagoNumero;
     private javax.swing.JLabel lblIdentificacion;
     private javax.swing.JLabel lblMeses;
+    private javax.swing.JLabel lblMesesNumero;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNombreGrande;
     private javax.swing.JLabel lblRutina;
@@ -209,7 +212,6 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblTarifaNumero;
     private javax.swing.JTextField txtFEdad;
     private javax.swing.JTextField txtFIdentificacion;
-    private javax.swing.JTextField txtFMesesEnElGym;
     private javax.swing.JTextField txtFName;
     // End of variables declaration//GEN-END:variables
 }

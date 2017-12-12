@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Santiago
@@ -42,6 +45,8 @@ public class CrearCliente extends javax.swing.JFrame {
         lblNombreGrande = new javax.swing.JLabel();
         txtFTarifaMensual = new javax.swing.JTextField();
         DateFechaDePago = new com.toedter.calendar.JDateChooser();
+        lblColones = new javax.swing.JLabel();
+        btnCrearUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +71,7 @@ public class CrearCliente extends javax.swing.JFrame {
         lblRutina.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblRutina.setText("Rutina de ejercicio:");
 
-        btnRutina.setText("Ver rutina");
+        btnRutina.setText("Editar Rutina");
         btnRutina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRutinaActionPerformed(evt);
@@ -76,6 +81,16 @@ public class CrearCliente extends javax.swing.JFrame {
         lblNombreGrande.setFont(new java.awt.Font("Consolas", 3, 24)); // NOI18N
         lblNombreGrande.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreGrande.setText("Crear Cliente");
+
+        lblColones.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblColones.setText("₡");
+
+        btnCrearUser.setText("Crear usuario");
+        btnCrearUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,28 +109,30 @@ public class CrearCliente extends javax.swing.JFrame {
                             .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtFName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFEdad, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFMesesEnElGym, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(DateFechaDePago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRutina)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblColones)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtFTarifaMensual, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(txtFIdentificacion)
-                            .addComponent(txtFEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtFName, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtFMesesEnElGym, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtFTarifaMensual)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(DateFechaDePago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRutina))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(btnCrearUser)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(lblNombreGrande, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblNombreGrande)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdentificacion)
                     .addComponent(txtFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,26 +151,35 @@ public class CrearCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTarifa)
-                    .addComponent(txtFTarifaMensual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFTarifaMensual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblColones))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblFechaDePago)
                     .addComponent(DateFechaDePago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblRutina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRutina)
+                    .addComponent(btnRutina))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCrearUser)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaActionPerformed
-        // TODO add your handling code here:
-        System.out.println(this.DateFechaDePago.getClass());
-        System.out.println(this.DateFechaDePago.getDate());
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy");
+        System.out.println(this.DateFechaDePago.getDate() == null);
+        Date fecha = this.DateFechaDePago.getDate();
+        String strFecha = formatoFecha.format(fecha);
+        System.out.println(strFecha);
     }//GEN-LAST:event_btnRutinaActionPerformed
+
+    private void btnCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,7 +219,9 @@ public class CrearCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateFechaDePago;
+    private javax.swing.JButton btnCrearUser;
     private javax.swing.JButton btnRutina;
+    private javax.swing.JLabel lblColones;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblFechaDePago;
     private javax.swing.JLabel lblIdentificacion;

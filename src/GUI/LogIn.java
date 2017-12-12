@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import coolrest.CoolRestRequest;
+
 /**
  *
  * @author Santiago
@@ -35,7 +37,7 @@ public class LogIn extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblUsuario.setText("Usuario:");
+        lblUsuario.setText("Identificacion");
 
         lblPassword.setText("Contraseña");
 
@@ -70,7 +72,7 @@ public class LogIn extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(btnLogIn)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +94,7 @@ public class LogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
-        System.out.println(this.txtFUser.getText());
+        CoolRestRequest rest = new CoolRestRequest();
     }//GEN-LAST:event_btnLogInActionPerformed
 
     private void txtFPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFPasswordActionPerformed
