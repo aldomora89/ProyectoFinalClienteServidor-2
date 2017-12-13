@@ -201,6 +201,9 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Nombre del Cliente"/>
       </Properties>
+      <Events>
+        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="lblNombreGrandeInputMethodTextChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMesesNumero">
       <Properties>

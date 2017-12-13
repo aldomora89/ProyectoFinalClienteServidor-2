@@ -82,6 +82,13 @@ public class Cliente extends javax.swing.JFrame {
         lblNombreGrande.setFont(new java.awt.Font("Consolas", 3, 24)); // NOI18N
         lblNombreGrande.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreGrande.setText("Nombre del Cliente");
+        lblNombreGrande.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                lblNombreGrandeInputMethodTextChanged(evt);
+            }
+        });
 
         lblMesesNumero.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblMesesNumero.setText("Meses en el Gimnasio");
@@ -161,6 +168,10 @@ public class Cliente extends javax.swing.JFrame {
     private void btnRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRutinaActionPerformed
+
+    private void lblNombreGrandeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_lblNombreGrandeInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblNombreGrandeInputMethodTextChanged
 
     /**
      * @param args the command line arguments
