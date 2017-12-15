@@ -39,6 +39,16 @@ public class AgregaEjercicio extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
         btnPrueba = new javax.swing.JButton();
+        lblNombreDeEjercicio = new javax.swing.JLabel();
+        lblNumeroDeMaquina = new javax.swing.JLabel();
+        lblCategoria = new javax.swing.JLabel();
+        lblPeso = new javax.swing.JLabel();
+        lblPeso1 = new javax.swing.JLabel();
+        txtFNombreDeEjercicio = new javax.swing.JTextField();
+        txtFNumeroDeMaquina = new javax.swing.JTextField();
+        txtFCategoria = new javax.swing.JTextField();
+        txtFPeso = new javax.swing.JTextField();
+        txtFRepeticiones = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,25 +67,50 @@ public class AgregaEjercicio extends javax.swing.JFrame {
             }
         });
 
+        lblNombreDeEjercicio.setText("Nombre del ejercicio: ");
+
+        lblNumeroDeMaquina.setText("Numero de la máquina: ");
+
+        lblCategoria.setText("Categoria: ");
+
+        lblPeso.setText("Peso:");
+
+        lblPeso1.setText("Repeticiones:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUser)
-                .addGap(60, 60, 60))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(btnPrueba)))
+                .addGap(19, 19, 19)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(139, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNumeroDeMaquina)
+                            .addComponent(lblNombreDeEjercicio)
+                            .addComponent(lblCategoria)
+                            .addComponent(lblPeso)
+                            .addComponent(lblPeso1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFNombreDeEjercicio)
+                            .addComponent(txtFNumeroDeMaquina)
+                            .addComponent(txtFCategoria)
+                            .addComponent(txtFPeso)
+                            .addComponent(txtFRepeticiones)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnPrueba)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblUsuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblUser)))))
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,9 +121,29 @@ public class AgregaEjercicio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario)
                     .addComponent(lblUser))
-                .addGap(48, 48, 48)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreDeEjercicio)
+                    .addComponent(txtFNombreDeEjercicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumeroDeMaquina)
+                    .addComponent(txtFNumeroDeMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCategoria)
+                    .addComponent(txtFCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPeso)
+                    .addComponent(txtFPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPeso1)
+                    .addComponent(txtFRepeticiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnPrueba)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -138,8 +193,18 @@ public class AgregaEjercicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrueba;
+    private javax.swing.JLabel lblCategoria;
+    private javax.swing.JLabel lblNombreDeEjercicio;
+    private javax.swing.JLabel lblNumeroDeMaquina;
+    private javax.swing.JLabel lblPeso;
+    private javax.swing.JLabel lblPeso1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTextField txtFCategoria;
+    private javax.swing.JTextField txtFNombreDeEjercicio;
+    private javax.swing.JTextField txtFNumeroDeMaquina;
+    private javax.swing.JTextField txtFPeso;
+    private javax.swing.JTextField txtFRepeticiones;
     // End of variables declaration//GEN-END:variables
 }
