@@ -16,9 +16,7 @@ public class ProyectoFinalClienteServidor {
      */
     public static void main(String[] args) {
         
-        Utils utils = new Utils();
-        utils.AgregarUsuario();
-        utils.print();
+        
         
     }
 

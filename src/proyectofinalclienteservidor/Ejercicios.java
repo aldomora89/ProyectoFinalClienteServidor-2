@@ -15,12 +15,14 @@ public class Ejercicios {
     private int numeroDeMaquina; 
     private String nombreDeEjercicio; 
     private String categoría; //Cardio, peso, funcional, etc. 
+    private String repeticiones;
 
-    public Ejercicios(double pesos, int numeroDeMaquina, String nombreDeEjercicio, String categoría) {
+    public Ejercicios(double pesos, int numeroDeMaquina, String nombreDeEjercicio, String categoría, String repeticiones) {
         this.pesos = pesos;
         this.numeroDeMaquina = numeroDeMaquina;
         this.nombreDeEjercicio = nombreDeEjercicio;
         this.categoría = categoría;
+        this.repeticiones = repeticiones;
     }
 
     public double getPesos() {
@@ -53,6 +55,14 @@ public class Ejercicios {
 
     public void setCategoría(String categoría) {
         this.categoría = categoría;
+    }
+
+    public String getRepeticiones() {
+        return repeticiones;
+    }
+
+    public void setRepeticiones(String repeticiones) {
+        this.repeticiones = repeticiones;
     }
     
     
