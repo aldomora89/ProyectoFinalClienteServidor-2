@@ -60,7 +60,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPeso2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,6 +95,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblPeso" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtFPeso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPeso2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -168,6 +171,11 @@
     <Component class="javax.swing.JTextField" name="txtFPeso">
     </Component>
     <Component class="javax.swing.JTextField" name="txtFRepeticiones">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPeso2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="lbs"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

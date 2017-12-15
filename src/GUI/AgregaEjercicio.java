@@ -49,6 +49,7 @@ public class AgregaEjercicio extends javax.swing.JFrame {
         txtFCategoria = new javax.swing.JTextField();
         txtFPeso = new javax.swing.JTextField();
         txtFRepeticiones = new javax.swing.JTextField();
+        lblPeso2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,8 @@ public class AgregaEjercicio extends javax.swing.JFrame {
         lblPeso.setText("Peso:");
 
         lblPeso1.setText("Repeticiones:");
+
+        lblPeso2.setText("lbs");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +113,9 @@ public class AgregaEjercicio extends javax.swing.JFrame {
                                 .addComponent(lblUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblUser)))))
-                .addGap(60, 60, 60))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPeso2)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +141,8 @@ public class AgregaEjercicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPeso)
-                    .addComponent(txtFPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPeso2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPeso1)
@@ -151,7 +157,12 @@ public class AgregaEjercicio extends javax.swing.JFrame {
 
     private void btnPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPruebaActionPerformed
         // TODO add your handling code here:
-        Ejercicios ejercicio3 = new Ejercicios(90.4, 5, "Ejercicio externo", "Cardio", "4x8");
+        double peso = Double.parseDouble(this.txtFPeso.getText());
+        int numMaquina = Integer.valueOf(this.txtFNumeroDeMaquina.getText());
+        String nombre = this.txtFNombreDeEjercicio.getText();
+        String categoria = this.txtFCategoria.getText();
+        String repeticiones = this.txtFRepeticiones.getText();
+        Ejercicios ejercicio3 = new Ejercicios(peso, numMaquina, nombre, categoria, repeticiones);
         ejercicios.add(ejercicio3);
         this.dispose();
     }//GEN-LAST:event_btnPruebaActionPerformed
@@ -198,6 +209,7 @@ public class AgregaEjercicio extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumeroDeMaquina;
     private javax.swing.JLabel lblPeso;
     private javax.swing.JLabel lblPeso1;
+    private javax.swing.JLabel lblPeso2;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUsuario;
