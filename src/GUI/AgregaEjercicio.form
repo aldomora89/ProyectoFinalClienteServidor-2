@@ -23,25 +23,46 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblUser" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="lblTitulo" min="-2" pref="242" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="lblTitulo" min="-2" pref="242" max="-2" attributes="0"/>
+              <EmptySpace pref="139" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblNumeroDeMaquina" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombreDeEjercicio" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCategoria" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPeso" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPeso1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtFNombreDeEjercicio" max="32767" attributes="0"/>
+                          <Component id="txtFNumeroDeMaquina" max="32767" attributes="0"/>
+                          <Component id="txtFCategoria" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFPeso" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtFRepeticiones" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                      <Component id="btnPrueba" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnPrueba" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblUser" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="139" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPeso2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,9 +76,35 @@
                   <Component id="lblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUser" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNombreDeEjercicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFNombreDeEjercicio" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNumeroDeMaquina" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFNumeroDeMaquina" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblPeso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFPeso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPeso2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblPeso1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFRepeticiones" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="btnPrueba" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="169" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,6 +136,46 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPruebaActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNombreDeEjercicio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre del ejercicio: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNumeroDeMaquina">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Numero de la m&#xe1;quina: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCategoria">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Categoria: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPeso">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Peso:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPeso1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Repeticiones:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtFNombreDeEjercicio">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtFNumeroDeMaquina">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtFCategoria">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtFPeso">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtFRepeticiones">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPeso2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="lbs"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
