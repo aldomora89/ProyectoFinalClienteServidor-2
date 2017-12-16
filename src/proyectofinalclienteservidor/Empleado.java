@@ -13,8 +13,8 @@ public class Empleado extends Persona { //El usuario empleado servirá para rece
 
     Double salario;
 
-    public Empleado(String name, String password, int age, int nivelDeUsuario, int id, Double salario) {
-        super(name, password, age, nivelDeUsuario, id);
+    public Empleado(String name, String password, int age, NivelDePermisos nivel, int id, Double salario) {
+        super(name, password, age, NivelDePermisos.Empleado, id);
         this.salario = salario;
     }
 

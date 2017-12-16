@@ -9,7 +9,9 @@ import coolrest.CoolRestRequest;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import proyectofinalclienteservidor.Persona;
 import proyectofinalclienteservidor.URLDefinition;
+import proyectofinalclienteservidor.Utils;
 
 /**
  *
@@ -105,6 +107,7 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         try {
             String user = this.txtFUser.getText();
@@ -112,9 +115,34 @@ public class LogIn extends javax.swing.JFrame {
             CoolRestRequest rest = new CoolRestRequest();
             String info = rest.getResource(URLDefinition.Cliente.getUrl() + "?user=" + user + "&password=" + password);
             System.out.println(info);
-        } catch (InterruptedException ex) {
-            System.out.println("Algo dio error");
-        } catch (ExecutionException ex) {
+
+//            for (int i = 0; i < Utils.users.size(); i++) {
+//                if (Utils.users.get(i).getName().equals(user)) {
+//                    if (Utils.users.get(i).getPassword().equals(password)) {
+//                        if (Utils.users.get(i).getNivelDeUsuario() == 0) {
+//                            Administrador admin = new Administrador();
+//                            admin.show();
+//                            setVisible(false);
+//                        }
+//                    }
+//                }
+//            }
+            switch (info) {
+                case "Admin":
+                    Administrador admin = new Administrador();
+                    admin.show();
+                    setVisible(false);
+                case "Cliente":
+                    Cliente cliente = new Cliente();
+                    cliente.show();
+                    setVisible(false);
+                case "Empleado":
+                    CrearCliente creacion = new CrearCliente();
+                    creacion.show();
+                    setVisible(false);
+            }
+
+        } catch (Exception ex) {
             System.out.println("Algo dio error");
         }
     }//GEN-LAST:event_btnLogInActionPerformed

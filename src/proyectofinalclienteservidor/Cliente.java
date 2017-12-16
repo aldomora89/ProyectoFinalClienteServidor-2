@@ -18,8 +18,8 @@ public class Cliente extends Persona {
     private ArrayList<Ejercicios> rutina;
     private String fechaDePago; 
 
-    public Cliente(String name, int age, String password, int nivelDeUsuario, int id, int mesesEnElGym, Tarifas tarifa) { //Al inscribir un usuario, necesitamos nombre, edad, privilegio (por defecto)
-        super(name, password, age, nivelDeUsuario, id);
+    public Cliente(String name, int age, String password, NivelDePermisos nivel, int id, int mesesEnElGym, Tarifas tarifa) { //Al inscribir un usuario, necesitamos nombre, edad, privilegio (por defecto)
+        super(name, password, age, NivelDePermisos.Cliente, id);
         this.mesesEnElGym = mesesEnElGym;
         this.tarifa = tarifa;
         this.rutina = new ArrayList<>();
