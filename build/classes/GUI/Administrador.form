@@ -23,10 +23,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblAdministrador" min="-2" pref="198" max="-2" attributes="0"/>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblAdministrador" min="-2" pref="198" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="btnAddCliente" min="-2" pref="258" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="83" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -35,7 +43,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblAdministrador" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="260" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnAddCliente" min="-2" pref="72" max="-2" attributes="0"/>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,6 +59,14 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Administrador"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xf1;adir clente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddClienteActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

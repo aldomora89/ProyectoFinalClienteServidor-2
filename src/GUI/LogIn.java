@@ -128,7 +128,7 @@ public class LogIn extends javax.swing.JFrame {
             } else if(info.equals("Empleado")){
                 UtilsCliente.usuarioLogueado = id;
                 UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Empleado;
-                CrearCliente empleado = new CrearCliente();
+                Administrador empleado = new Administrador();
                 empleado.setVisible(true);
                 System.out.println(id);
                 this.dispose();

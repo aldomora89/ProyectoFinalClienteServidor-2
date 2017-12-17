@@ -5,8 +5,15 @@
  */
 package GUI;
 
+import com.google.gson.Gson;
+import coolrest.CoolRestRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import proyectofinalclienteservidor.ClientePOJO;
+import proyectofinalclienteservidor.URLDefinition;
 
 /**
  *
@@ -178,7 +185,23 @@ public class CrearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRutinaActionPerformed
 
     private void btnCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUserActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            String id = this.txtFIdentificacion.getText();
+            int edad = Integer.parseInt(this.txtFEdad.getText());
+            String name = this.txtFName.getText();
+            int meses = Integer.parseInt(this.txtFMesesEnElGym.getText());
+            double tarifa = Double.parseDouble(this.txtFTarifaMensual.getText());
+            Date date = this.DateFechaDePago.getDate();
+            ClientePOJO cliente = new ClientePOJO(name, edad, id, meses, tarifa, date);
+            
+            CoolRestRequest rest = new CoolRestRequest();
+            rest.postResource(URLDefinition.Cliente.getUrl(), new Gson().toJson(cliente));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCrearUserActionPerformed
 
     /**
