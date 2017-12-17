@@ -6,10 +6,11 @@
 package GUI;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
 import coolrest.CoolRestRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -26,7 +27,6 @@ import proyectofinalclienteservidor.UtilsCliente;
  * @author Juan Carlos Cortes
  */
 public class Rutina extends javax.swing.JFrame {
-    ArrayList<Ejercicios> ejercicios = new ArrayList<>();
 
     /**
      * Creates new form Rutina
@@ -38,12 +38,6 @@ public class Rutina extends javax.swing.JFrame {
             this.btnBorrar.setVisible(false);
             this.btnPruebaAgregar.setVisible(false);
         }
-        /*Ejercicios ejercicio1 = new Ejercicios(55.5, 3, "Press Plano", "Hipertrofia", "10x3");
-        Ejercicios ejercicio2 = new Ejercicios(56.8, 1, "Ejercicio 2", "Hipertrofia", "8x3");
-        Ejercicios ejercicio3 = new Ejercicios(87.6, 2, "Ejercicio 3", "Cardio", "4x8");
-        ejercicios.add(ejercicio1);
-        ejercicios.add(ejercicio2);
-        ejercicios.add(ejercicio3);*/
         
         
     }
@@ -239,7 +233,7 @@ public class Rutina extends javax.swing.JFrame {
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         try {
-            ejercicios.remove(this.tablaRutina.getSelectedRow());
+            //ejercicios.remove(this.tablaRutina.getSelectedRow());
             refrescar();
         } catch (InterruptedException ex) {
             Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);
@@ -295,12 +289,12 @@ public class Rutina extends javax.swing.JFrame {
         
         CoolRestRequest rest = new CoolRestRequest();
         String result = rest.getResource(URLDefinition.Rutina.getUrl() + "?id=" + UtilsCliente.usuarioSeleccionado);
-        System.out.println(result);
         
         if(!result.equals("NoHay")){
-            ejercicios = new Gson().fromJson(result, ArrayList.class);
-            for(Ejercicios ejercicio : ejercicios){
-                System.out.println(ejercicio.getNombreDeEjercicio());
+            Ejercicios[] Arreglo = new Gson().fromJson(result, Ejercicios[].class);
+            List<Ejercicios> EjeciciosList = new ArrayList<>(Arrays.asList(Arreglo));
+            
+            for(Ejercicios ejercicio : EjeciciosList){
                 modeloTabla.addRow(new Object[]{ejercicio.getNombreDeEjercicio(),
                                                 ejercicio.getNumeroDeMaquina(),
                                                 ejercicio.getPesos(),
