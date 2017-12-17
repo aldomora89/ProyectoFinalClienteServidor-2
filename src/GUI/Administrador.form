@@ -29,7 +29,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblAdministrador" min="-2" pref="198" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnAddEmpleado" min="-2" pref="258" max="-2" attributes="0"/>
@@ -39,18 +39,29 @@
               </Group>
               <EmptySpace pref="83" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="lblCantidadUsers" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lblCantidadNum" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCantidadUsers" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCantidadNum" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblAdministrador" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAddCliente" min="-2" pref="72" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="btnAddEmpleado" min="-2" pref="72" max="-2" attributes="0"/>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,6 +91,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddEmpleadoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCantidadUsers">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cantidad de usuarios registrados:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCantidadNum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="000"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

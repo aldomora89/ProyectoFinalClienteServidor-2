@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import proyectofinalclienteservidor.CantidadDeUsuarios;
 import proyectofinalclienteservidor.NivelDePermisos;
 import proyectofinalclienteservidor.UtilsCliente;
 
@@ -23,6 +26,9 @@ public class Administrador extends javax.swing.JFrame {
             this.lblAdministrador.setText("Empleado");
             this.btnAddEmpleado.setVisible(false);
         } 
+        ExecutorService service = Executors.newCachedThreadPool();
+        CantidadDeUsuarios hilo = new CantidadDeUsuarios(this.lblCantidadNum);
+        service.submit(hilo);
     }
 
     /**
@@ -37,6 +43,8 @@ public class Administrador extends javax.swing.JFrame {
         lblAdministrador = new javax.swing.JLabel();
         btnAddCliente = new javax.swing.JButton();
         btnAddEmpleado = new javax.swing.JButton();
+        lblCantidadUsers = new javax.swing.JLabel();
+        lblCantidadNum = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +66,10 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        lblCantidadUsers.setText("Cantidad de usuarios registrados:");
+
+        lblCantidadNum.setText("000");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,17 +85,26 @@ public class Administrador extends javax.swing.JFrame {
                             .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(83, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblCantidadUsers)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCantidadNum)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCantidadUsers)
+                    .addComponent(lblCantidadNum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdministrador)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,5 +160,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JButton btnAddCliente;
     private javax.swing.JButton btnAddEmpleado;
     private javax.swing.JLabel lblAdministrador;
+    private javax.swing.JLabel lblCantidadNum;
+    private javax.swing.JLabel lblCantidadUsers;
     // End of variables declaration//GEN-END:variables
 }
