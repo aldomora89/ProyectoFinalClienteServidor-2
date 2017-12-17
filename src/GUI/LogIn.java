@@ -109,7 +109,7 @@ public class LogIn extends javax.swing.JFrame {
             String id = this.txtFId.getText();
             String password = this.txtFPassword.getText();
             CoolRestRequest rest = new CoolRestRequest();
-            String info = rest.getResource(URLDefinition.Cliente.getUrl() + "?id=" + id + "&password=" + password);
+            String info = rest.getResource(URLDefinition.Login.getUrl() + "?id=" + id + "&password=" + password);
             System.out.println(info);
             
             
@@ -130,7 +130,6 @@ public class LogIn extends javax.swing.JFrame {
                 UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Empleado;
                 Administrador empleado = new Administrador();
                 empleado.setVisible(true);
-                System.out.println(id);
                 this.dispose();
             } else{
                 JOptionPane.showMessageDialog(this, info);

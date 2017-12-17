@@ -11,18 +11,18 @@ package proyectofinalclienteservidor;
  */
 public class Empleado extends Persona { //El usuario empleado servirá para recepcion, cajero y entrenador
 
-    Double salario;
+    double salario;
 
-    public Empleado(String name, String password, int age, NivelDePermisos nivel, String id, Double salario) {
+    public Empleado(String name, String password, int age, NivelDePermisos nivel, String id, double salario) {
         super(name, password, age, NivelDePermisos.Empleado, id);
         this.salario = salario;
     }
 
-    public Double getSalario() {
+    public double getSalario() {
         return salario;
     }
 
-    public void setSalario(Double salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
     

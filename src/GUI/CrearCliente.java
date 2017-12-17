@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import proyectofinalclienteservidor.ClientePOJO;
 import proyectofinalclienteservidor.URLDefinition;
 
@@ -196,7 +197,17 @@ public class CrearCliente extends javax.swing.JFrame {
             ClientePOJO cliente = new ClientePOJO(name, edad, id, meses, tarifa, date);
             
             CoolRestRequest rest = new CoolRestRequest();
-            rest.postResource(URLDefinition.Cliente.getUrl(), new Gson().toJson(cliente));
+            
+            String resultado = rest.getResource(URLDefinition.Cliente.getUrl() + "?id=" + id);
+            if(resultado.equals("Agregar")){
+                rest = new CoolRestRequest();
+                rest.postResource(URLDefinition.Cliente.getUrl(), new Gson().toJson(cliente));
+                JOptionPane.showMessageDialog(this, "El usuario ha sido agregado.");
+                this.dispose();
+            } else{
+                JOptionPane.showMessageDialog(this, resultado);
+            }
+            
         } catch (InterruptedException ex) {
             Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExecutionException ex) {

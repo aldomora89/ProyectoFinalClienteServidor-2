@@ -21,7 +21,8 @@ public class Administrador extends javax.swing.JFrame {
         initComponents();
         if(UtilsCliente.nivelDeUsuarioLogueado == NivelDePermisos.Empleado){
             this.lblAdministrador.setText("Empleado");
-        }
+            this.btnAddEmpleado.setVisible(false);
+        } 
     }
 
     /**
@@ -35,6 +36,7 @@ public class Administrador extends javax.swing.JFrame {
 
         lblAdministrador = new javax.swing.JLabel();
         btnAddCliente = new javax.swing.JButton();
+        btnAddEmpleado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +51,13 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        btnAddEmpleado.setText("Añadir empleado");
+        btnAddEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEmpleadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,7 +69,9 @@ public class Administrador extends javax.swing.JFrame {
                         .addComponent(lblAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,7 +81,9 @@ public class Administrador extends javax.swing.JFrame {
                 .addComponent(lblAdministrador)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,6 +94,11 @@ public class Administrador extends javax.swing.JFrame {
         CrearCliente crear = new CrearCliente();
         crear.setVisible(true);
     }//GEN-LAST:event_btnAddClienteActionPerformed
+
+    private void btnAddEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmpleadoActionPerformed
+        CrearEmpleado crear = new CrearEmpleado();
+        crear.setVisible(true);
+    }//GEN-LAST:event_btnAddEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,6 +137,7 @@ public class Administrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCliente;
+    private javax.swing.JButton btnAddEmpleado;
     private javax.swing.JLabel lblAdministrador;
     // End of variables declaration//GEN-END:variables
 }
