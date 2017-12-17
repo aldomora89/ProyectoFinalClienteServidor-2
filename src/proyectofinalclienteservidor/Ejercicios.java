@@ -11,13 +11,15 @@ package proyectofinalclienteservidor;
  */
 public class Ejercicios {
     
+    private String idUser;
     private double pesos; //En kilogramos, 0 si es cardio
     private int numeroDeMaquina; 
     private String nombreDeEjercicio; 
     private String categoría; //Cardio, peso, funcional, etc. 
     private String repeticiones;
 
-    public Ejercicios(double pesos, int numeroDeMaquina, String nombreDeEjercicio, String categoría, String repeticiones) {
+    public Ejercicios(String idUser, double pesos, int numeroDeMaquina, String nombreDeEjercicio, String categoría, String repeticiones) {
+        this.idUser = idUser;
         this.pesos = pesos;
         this.numeroDeMaquina = numeroDeMaquina;
         this.nombreDeEjercicio = nombreDeEjercicio;
@@ -25,6 +27,16 @@ public class Ejercicios {
         this.repeticiones = repeticiones;
     }
 
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
+    
+    
+    
     public double getPesos() {
         return pesos;
     }

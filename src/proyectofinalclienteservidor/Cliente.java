@@ -15,14 +15,13 @@ public class Cliente extends Persona {
 
     private int mesesEnElGym; //Agregamos un contador del tiempo de la persona en el gimnasio
     private Tarifas tarifa;
-    private ArrayList<Ejercicios> rutina;
     private String fechaDePago; 
 
-    public Cliente(String name, int age, String password, NivelDePermisos nivel, int id, int mesesEnElGym, Tarifas tarifa) { //Al inscribir un usuario, necesitamos nombre, edad, privilegio (por defecto)
+    public Cliente(String name, int age, String password, NivelDePermisos nivel, String id, int mesesEnElGym, String fechaDePago, Tarifas tarifa) { //Al inscribir un usuario, necesitamos nombre, edad, privilegio (por defecto)
         super(name, password, age, NivelDePermisos.Cliente, id);
         this.mesesEnElGym = mesesEnElGym;
         this.tarifa = tarifa;
-        this.rutina = new ArrayList<>();
+        this.fechaDePago = fechaDePago;
 
     }
 

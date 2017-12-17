@@ -162,7 +162,7 @@ public class AgregaEjercicio extends javax.swing.JFrame {
         String nombre = this.txtFNombreDeEjercicio.getText();
         String categoria = this.txtFCategoria.getText();
         String repeticiones = this.txtFRepeticiones.getText();
-        Ejercicios ejercicio3 = new Ejercicios(peso, numMaquina, nombre, categoria, repeticiones);
+        Ejercicios ejercicio3 = new Ejercicios("3",peso, numMaquina, nombre, categoria, repeticiones);
         ejercicios.add(ejercicio3);
         this.dispose();
     }//GEN-LAST:event_btnPruebaActionPerformed

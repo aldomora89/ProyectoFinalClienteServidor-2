@@ -9,9 +9,11 @@ import coolrest.CoolRestRequest;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import proyectofinalclienteservidor.NivelDePermisos;
 import proyectofinalclienteservidor.Persona;
 import proyectofinalclienteservidor.URLDefinition;
-import proyectofinalclienteservidor.Utils;
+import proyectofinalclienteservidor.UtilsCliente;
 
 /**
  *
@@ -38,7 +40,7 @@ public class LogIn extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         btnLogIn = new javax.swing.JButton();
-        txtFUser = new javax.swing.JTextField();
+        txtFId = new javax.swing.JTextField();
         txtFPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -55,12 +57,6 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        txtFPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFPasswordActionPerformed(evt);
-            }
-        });
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/GHG_Logo_1a.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,7 +69,7 @@ public class LogIn extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblUsuario)
                         .addGap(18, 18, 18)
-                        .addComponent(txtFUser, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFId, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblPassword)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -94,7 +90,7 @@ public class LogIn extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario)
-                    .addComponent(txtFUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword)
@@ -110,46 +106,41 @@ public class LogIn extends javax.swing.JFrame {
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         try {
-            String user = this.txtFUser.getText();
+            String id = this.txtFId.getText();
             String password = this.txtFPassword.getText();
             CoolRestRequest rest = new CoolRestRequest();
-            String info = rest.getResource(URLDefinition.Cliente.getUrl() + "?user=" + user + "&password=" + password);
+            String info = rest.getResource(URLDefinition.Cliente.getUrl() + "?id=" + id + "&password=" + password);
             System.out.println(info);
-
-//            for (int i = 0; i < Utils.users.size(); i++) {
-//                if (Utils.users.get(i).getName().equals(user)) {
-//                    if (Utils.users.get(i).getPassword().equals(password)) {
-//                        if (Utils.users.get(i).getNivelDeUsuario() == 0) {
-//                            Administrador admin = new Administrador();
-//                            admin.show();
-//                            setVisible(false);
-//                        }
-//                    }
-//                }
-//            }
-            switch (info) {
-                case "Admin":
-                    Administrador admin = new Administrador();
-                    admin.show();
-                    setVisible(false);
-                case "Cliente":
-                    Cliente cliente = new Cliente();
-                    cliente.show();
-                    setVisible(false);
-                case "Empleado":
-                    CrearCliente creacion = new CrearCliente();
-                    creacion.show();
-                    setVisible(false);
+            
+            
+            if(info.equals("Administrador")){
+                UtilsCliente.usuarioLogueado = id;
+                UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Administrador;
+                Administrador admin = new Administrador();
+                admin.setVisible(true);
+                this.dispose();
+            } else if(info.equals("Cliente")){
+                UtilsCliente.usuarioLogueado = id;
+                UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Cliente;
+                Cliente cliente = new Cliente();
+                cliente.setVisible(true);
+                this.dispose();
+            } else if(info.equals("Empleado")){
+                UtilsCliente.usuarioLogueado = id;
+                UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Empleado;
+                CrearCliente empleado = new CrearCliente();
+                empleado.setVisible(true);
+                System.out.println(id);
+                this.dispose();
+            } else{
+                JOptionPane.showMessageDialog(this, info);
             }
+            
 
         } catch (Exception ex) {
             System.out.println("Algo dio error");
         }
     }//GEN-LAST:event_btnLogInActionPerformed
-
-    private void txtFPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,7 +182,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTextField txtFId;
     private javax.swing.JTextField txtFPassword;
-    private javax.swing.JTextField txtFUser;
     // End of variables declaration//GEN-END:variables
 }

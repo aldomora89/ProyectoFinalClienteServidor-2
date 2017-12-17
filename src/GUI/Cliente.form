@@ -25,39 +25,35 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lblFechaDePago" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblTarifa" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblEdad" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblIdentificacion" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblMeses" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblName" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                          <Component id="lblRutina" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtFIdentificacion" max="32767" attributes="0"/>
-                          <Component id="txtFEdad" alignment="0" pref="217" max="32767" attributes="0"/>
-                          <Component id="txtFName" alignment="0" pref="217" max="32767" attributes="0"/>
-                          <Component id="lblFechaDePagoNumero" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblTarifaNumero" min="-2" pref="79" max="-2" attributes="0"/>
-                                  <Component id="btnRutina" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEdad" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="lblIdentificacion" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="lblName" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblIDCambiar" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="lblNameCambiar" min="-2" pref="117" max="-2" attributes="0"/>
+                                  <Component id="lblEdadCambiar" min="-2" pref="79" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="lblMesesNumero" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lblRutina" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnRutina" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="lblNombreGrande" min="-2" pref="378" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblNombreGrande" min="-2" pref="326" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace min="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,42 +62,27 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblNombreGrande" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFIdentificacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblIDCambiar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNameCambiar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblEdad" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFEdad" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblEdad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEdadCambiar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblMeses" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblMesesNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRutina" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRutina" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTarifa" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTarifaNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblFechaDePago" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblFechaDePagoNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblRutina" max="32767" attributes="0"/>
-                  <Component id="btnRutina" min="-2" pref="14" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -120,7 +101,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nombre Completo"/>
+        <Property name="text" type="java.lang.String" value="Nombre Completo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEdad">
@@ -131,58 +112,12 @@
         <Property name="text" type="java.lang.String" value="Edad:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblMeses">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="11" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Meses en el Gimnasio"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTarifa">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="11" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Tarifa mensual:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblFechaDePago">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="11" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Fecha de pago:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblRutina">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Rutina de ejercicio:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtFIdentificacion">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtFName">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtFEdad">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTarifaNumero">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="11" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Tarifa mensual:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblFechaDePagoNumero">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="11" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Fecha de pago oficial"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnRutina">
@@ -205,12 +140,28 @@
         <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="lblNombreGrandeInputMethodTextChanged"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblMesesNumero">
+    <Component class="javax.swing.JLabel" name="lblIDCambiar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="11" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Meses en el Gimnasio"/>
+        <Property name="text" type="java.lang.String" value="Identificacion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNameCambiar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nombre Completo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEdadCambiar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Edad:"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -11,7 +11,7 @@ package proyectofinalclienteservidor;
  */
 public enum URLDefinition {
 
-    Cliente("Cliente"), message("Message");
+    Cliente("Cliente"), message("Message"), Inicio("Inicio"), NormalUser("NormalUser"), Rutina("Rutina");
 
     private String url;
     private String baseURL = "http://localhost:8080/ServidorRest/webresources/";

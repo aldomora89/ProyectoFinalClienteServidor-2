@@ -5,10 +5,21 @@
  */
 package GUI;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
+import coolrest.CoolRestRequest;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proyectofinalclienteservidor.Ejercicios;
+import proyectofinalclienteservidor.NivelDePermisos;
+import proyectofinalclienteservidor.URLDefinition;
+import proyectofinalclienteservidor.UtilsCliente;
 
 /**
  *
@@ -22,12 +33,17 @@ public class Rutina extends javax.swing.JFrame {
      */
     public Rutina() {
         initComponents();
-        Ejercicios ejercicio1 = new Ejercicios(55.5, 3, "Press Plano", "Hipertrofia", "10x3");
+        this.lblNombreDelCliente.setText(UtilsCliente.usuarioLogueado);
+        if(UtilsCliente.nivelDeUsuarioLogueado == NivelDePermisos.Cliente){
+            this.btnBorrar.setVisible(false);
+            this.btnPruebaAgregar.setVisible(false);
+        }
+        /*Ejercicios ejercicio1 = new Ejercicios(55.5, 3, "Press Plano", "Hipertrofia", "10x3");
         Ejercicios ejercicio2 = new Ejercicios(56.8, 1, "Ejercicio 2", "Hipertrofia", "8x3");
         Ejercicios ejercicio3 = new Ejercicios(87.6, 2, "Ejercicio 3", "Cardio", "4x8");
         ejercicios.add(ejercicio1);
         ejercicios.add(ejercicio2);
-        ejercicios.add(ejercicio3);
+        ejercicios.add(ejercicio3);*/
         
         
     }
@@ -43,7 +59,6 @@ public class Rutina extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        lblTituloRutinas = new javax.swing.JLabel();
         lblCliente = new javax.swing.JLabel();
         lblNombreDelCliente = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
@@ -52,6 +67,7 @@ public class Rutina extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
         btnPruebaAgregar = new javax.swing.JButton();
+        lblTituloGrande = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,9 +83,6 @@ public class Rutina extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblTituloRutinas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblTituloRutinas.setText("¡RUTINA! ");
 
         lblCliente.setText("Cliente: ");
 
@@ -131,6 +144,10 @@ public class Rutina extends javax.swing.JFrame {
             }
         });
 
+        lblTituloGrande.setFont(new java.awt.Font("Consolas", 3, 24)); // NOI18N
+        lblTituloGrande.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloGrande.setText("Rutina de ejercicio");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,6 +156,11 @@ public class Rutina extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCliente)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNombreDelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnPruebaAgregar)
                         .addGap(36, 36, 36)
@@ -146,47 +168,48 @@ public class Rutina extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblTituloRutinas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRefrescar)
-                        .addGap(135, 135, 135))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCliente)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblNombreDelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblTituloGrande, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRefrescar))
+                            .addComponent(jScrollPane, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(34, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTituloRutinas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloGrande)
                     .addComponent(btnRefrescar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCliente)
                     .addComponent(lblNombreDelCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnPruebaAgregar)
                     .addComponent(btnBorrar)
-                    .addComponent(btnPruebaAgregar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarActionPerformed
-        // TODO add your handling code here:
-        refrescar();
+        try {
+            // TODO add your handling code here:
+            refrescar();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnRefrescarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -215,14 +238,20 @@ public class Rutina extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        ejercicios.remove(this.tablaRutina.getSelectedRow());
-        refrescar();
+        try {
+            ejercicios.remove(this.tablaRutina.getSelectedRow());
+            refrescar();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void btnPruebaAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPruebaAgregarActionPerformed
         // TODO add your handling code here:
-        AgregaEjercicio addEjercicio = new AgregaEjercicio("Usuaio que se modifica", ejercicios);
-        addEjercicio.setVisible(true);
+        //AgregaEjercicio addEjercicio = new AgregaEjercicio(UtilsCliente.usuarioLogueado, ejercicios);
+        //addEjercicio.setVisible(true);
     }//GEN-LAST:event_btnPruebaAgregarActionPerformed
 
     /**
@@ -260,16 +289,31 @@ public class Rutina extends javax.swing.JFrame {
         });
     }
     
-    private void refrescar(){
+    private void refrescar() throws InterruptedException, ExecutionException{
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaRutina.getModel();
         modeloTabla.setRowCount(0);
-        for(Ejercicios ejercicio : this.ejercicios){
-            modeloTabla.addRow(new Object[]{ejercicio.getNombreDeEjercicio(),
-                                            ejercicio.getNumeroDeMaquina(),
-                                            ejercicio.getPesos(),
-                                            ejercicio.getCategoría(),
-                                            ejercicio.getRepeticiones()});
+        
+        CoolRestRequest rest = new CoolRestRequest();
+        String result = rest.getResource(URLDefinition.Rutina.getUrl() + "?id=" + UtilsCliente.usuarioSeleccionado);
+        System.out.println(result);
+        
+        if(!result.equals("NoHay")){
+            ejercicios = new Gson().fromJson(result, ArrayList.class);
+            for(Ejercicios ejercicio : ejercicios){
+                System.out.println(ejercicio.getNombreDeEjercicio());
+                modeloTabla.addRow(new Object[]{ejercicio.getNombreDeEjercicio(),
+                                                ejercicio.getNumeroDeMaquina(),
+                                                ejercicio.getPesos(),
+                                                ejercicio.getCategoría(),
+                                                ejercicio.getRepeticiones()});
+            }
+        } else{
+            result = "El usuario no tiene rutina asignada.";
+            JOptionPane.showMessageDialog(this, result);
         }
+        
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -282,7 +326,7 @@ public class Rutina extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblNombreDelCliente;
-    private javax.swing.JLabel lblTituloRutinas;
+    private javax.swing.JLabel lblTituloGrande;
     private javax.swing.JTable tablaRutina;
     // End of variables declaration//GEN-END:variables
 }

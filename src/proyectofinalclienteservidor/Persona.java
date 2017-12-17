@@ -17,9 +17,9 @@ public abstract class Persona {
 //    private int nivelDeUsuario; //Generamos un identificador para los accesos de usuario. El usuario nivel 0 es el administrador. Puede modificar atributos, tarifas, ingresar usuarios, 
 //    //eliminar usuarios y demás funcionalidades. El usuario nivel 1 puede realizar todas las funciones de ingreso de datos, menos modificaciones y eliminaciones, el usuario nivel 2 solo tiene modo vista.
     private NivelDePermisos nivel;
-    private int id; 
+    private String id; 
 
-    public Persona(String name, String password, int age, NivelDePermisos nivel, int id) {
+    public Persona(String name, String password, int age, NivelDePermisos nivel, String id) {
         this.name = name;
         this.password = password;
         this.age = age;
@@ -61,11 +61,11 @@ public abstract class Persona {
 
     
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

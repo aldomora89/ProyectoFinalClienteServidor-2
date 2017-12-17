@@ -5,6 +5,15 @@
  */
 package GUI;
 
+import com.google.gson.Gson;
+import coolrest.CoolRestRequest;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import proyectofinalclienteservidor.ClientePOJO;
+import proyectofinalclienteservidor.URLDefinition;
+import proyectofinalclienteservidor.UtilsCliente;
+
 /**
  *
  * @author Santiago
@@ -14,8 +23,16 @@ public class Cliente extends javax.swing.JFrame {
     /**
      * Creates new form Cliente
      */
-    public Cliente() {
+    public Cliente() throws InterruptedException, ExecutionException {
         initComponents();
+        CoolRestRequest rest = new CoolRestRequest();
+        String result = rest.getResource(URLDefinition.NormalUser.getUrl() + "?id=" + UtilsCliente.usuarioLogueado);
+        ClientePOJO cliente = new Gson().fromJson(result, ClientePOJO.class);
+        this.lblNombreGrande.setText(cliente.getName());
+        this.lblNameCambiar.setText(cliente.getName());
+        this.lblIDCambiar.setText(cliente.getId());
+        this.lblEdadCambiar.setText(String.valueOf(cliente.getAge()));
+        UtilsCliente.usuarioSeleccionado = UtilsCliente.usuarioLogueado;
     }
 
     /**
@@ -30,18 +47,12 @@ public class Cliente extends javax.swing.JFrame {
         lblIdentificacion = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblEdad = new javax.swing.JLabel();
-        lblMeses = new javax.swing.JLabel();
-        lblTarifa = new javax.swing.JLabel();
-        lblFechaDePago = new javax.swing.JLabel();
         lblRutina = new javax.swing.JLabel();
-        txtFIdentificacion = new javax.swing.JTextField();
-        txtFName = new javax.swing.JTextField();
-        txtFEdad = new javax.swing.JTextField();
-        lblTarifaNumero = new javax.swing.JLabel();
-        lblFechaDePagoNumero = new javax.swing.JLabel();
         btnRutina = new javax.swing.JButton();
         lblNombreGrande = new javax.swing.JLabel();
-        lblMesesNumero = new javax.swing.JLabel();
+        lblIDCambiar = new javax.swing.JLabel();
+        lblNameCambiar = new javax.swing.JLabel();
+        lblEdadCambiar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,28 +60,13 @@ public class Cliente extends javax.swing.JFrame {
         lblIdentificacion.setText("Identificacion:");
 
         lblName.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblName.setText("Nombre Completo");
+        lblName.setText("Nombre Completo:");
 
         lblEdad.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblEdad.setText("Edad:");
 
-        lblMeses.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblMeses.setText("Meses en el Gimnasio");
-
-        lblTarifa.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblTarifa.setText("Tarifa mensual:");
-
-        lblFechaDePago.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblFechaDePago.setText("Fecha de pago:");
-
         lblRutina.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblRutina.setText("Rutina de ejercicio:");
-
-        lblTarifaNumero.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblTarifaNumero.setText("Tarifa mensual:");
-
-        lblFechaDePagoNumero.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblFechaDePagoNumero.setText("Fecha de pago oficial");
 
         btnRutina.setText("Ver rutina");
         btnRutina.addActionListener(new java.awt.event.ActionListener() {
@@ -90,8 +86,14 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        lblMesesNumero.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblMesesNumero.setText("Meses en el Gimnasio");
+        lblIDCambiar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblIDCambiar.setText("Identificacion");
+
+        lblNameCambiar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblNameCambiar.setText("Nombre Completo");
+
+        lblEdadCambiar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblEdadCambiar.setText("Edad:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,66 +102,49 @@ public class Cliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
+                        .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblFechaDePago, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMeses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFIdentificacion)
-                            .addComponent(txtFEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                            .addComponent(txtFName, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                            .addComponent(lblFechaDePagoNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTarifaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRutina))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(lblMesesNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblIDCambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNameCambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEdadCambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnRutina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(lblNombreGrande, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
+                        .addContainerGap()
+                        .addComponent(lblNombreGrande, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblNombreGrande)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdentificacion)
-                    .addComponent(txtFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblIDCambiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
-                    .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblNameCambiar))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEdad)
-                    .addComponent(txtFEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblEdadCambiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMeses)
-                    .addComponent(lblMesesNumero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTarifa)
-                    .addComponent(lblTarifaNumero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaDePago)
-                    .addComponent(lblFechaDePagoNumero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblRutina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                    .addComponent(btnRutina)
+                    .addComponent(lblRutina))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -167,6 +152,8 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btnRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaActionPerformed
         // TODO add your handling code here:
+        Rutina rutina = new Rutina();
+        rutina.setVisible(true);
     }//GEN-LAST:event_btnRutinaActionPerformed
 
     private void lblNombreGrandeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_lblNombreGrandeInputMethodTextChanged
@@ -203,7 +190,13 @@ public class Cliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cliente().setVisible(true);
+                try {
+                    new Cliente().setVisible(true);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ExecutionException ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -211,18 +204,12 @@ public class Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRutina;
     private javax.swing.JLabel lblEdad;
-    private javax.swing.JLabel lblFechaDePago;
-    private javax.swing.JLabel lblFechaDePagoNumero;
+    private javax.swing.JLabel lblEdadCambiar;
+    private javax.swing.JLabel lblIDCambiar;
     private javax.swing.JLabel lblIdentificacion;
-    private javax.swing.JLabel lblMeses;
-    private javax.swing.JLabel lblMesesNumero;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNameCambiar;
     private javax.swing.JLabel lblNombreGrande;
     private javax.swing.JLabel lblRutina;
-    private javax.swing.JLabel lblTarifa;
-    private javax.swing.JLabel lblTarifaNumero;
-    private javax.swing.JTextField txtFEdad;
-    private javax.swing.JTextField txtFIdentificacion;
-    private javax.swing.JTextField txtFName;
     // End of variables declaration//GEN-END:variables
 }
