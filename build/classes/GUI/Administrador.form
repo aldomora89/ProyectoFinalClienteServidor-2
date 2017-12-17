@@ -34,6 +34,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnAddEmpleado" min="-2" pref="258" max="-2" attributes="0"/>
                           <Component id="btnAddCliente" min="-2" pref="258" max="-2" attributes="0"/>
+                          <Component id="btnModificarCliente" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -59,9 +60,11 @@
               <Component id="lblAdministrador" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAddCliente" min="-2" pref="72" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnModificarCliente" min="-2" pref="72" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnAddEmpleado" min="-2" pref="72" max="-2" attributes="0"/>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,7 +81,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAddCliente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="A&#xf1;adir clente"/>
+        <Property name="text" type="java.lang.String" value="A&#xf1;adir Cliente"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddClienteActionPerformed"/>
@@ -101,6 +104,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="000"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnModificarCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modificar Cliente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarClienteActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

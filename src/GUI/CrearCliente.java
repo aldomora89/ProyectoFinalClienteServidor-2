@@ -25,8 +25,10 @@ public class CrearCliente extends javax.swing.JFrame {
     /**
      * Creates new form Cliente
      */
-    public CrearCliente() {
+    public CrearCliente(String tipo) {
         initComponents();
+        if(tipo.equals("Modificar")){
+        }
     }
 
     /**
@@ -197,8 +199,9 @@ public class CrearCliente extends javax.swing.JFrame {
             ClientePOJO cliente = new ClientePOJO(name, edad, id, meses, tarifa, date);
             
             CoolRestRequest rest = new CoolRestRequest();
+            String resultado = rest.getResource(URLDefinition.Info.getUrl() + "?dato=" + "ExisteUsuario" + "&id=" + id);
+            System.out.println(resultado);
             
-            String resultado = rest.getResource(URLDefinition.Cliente.getUrl() + "?id=" + id);
             if(resultado.equals("Agregar")){
                 rest = new CoolRestRequest();
                 rest.postResource(URLDefinition.Cliente.getUrl(), new Gson().toJson(cliente));
@@ -246,7 +249,7 @@ public class CrearCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CrearCliente().setVisible(true);
+                new CrearCliente(null).setVisible(true);
             }
         });
     }

@@ -45,6 +45,7 @@ public class Administrador extends javax.swing.JFrame {
         btnAddEmpleado = new javax.swing.JButton();
         lblCantidadUsers = new javax.swing.JLabel();
         lblCantidadNum = new javax.swing.JLabel();
+        btnModificarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,7 +53,7 @@ public class Administrador extends javax.swing.JFrame {
         lblAdministrador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdministrador.setText("Administrador");
 
-        btnAddCliente.setText("Añadir clente");
+        btnAddCliente.setText("Añadir Cliente");
         btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddClienteActionPerformed(evt);
@@ -70,6 +71,13 @@ public class Administrador extends javax.swing.JFrame {
 
         lblCantidadNum.setText("000");
 
+        btnModificarCliente.setText("Modificar Cliente");
+        btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,7 +91,8 @@ public class Administrador extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnModificarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(83, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -102,9 +111,11 @@ public class Administrador extends javax.swing.JFrame {
                 .addComponent(lblAdministrador)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnModificarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -112,7 +123,7 @@ public class Administrador extends javax.swing.JFrame {
 
     private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
         // TODO add your handling code here:
-        CrearCliente crear = new CrearCliente();
+        CrearCliente crear = new CrearCliente("Crear");
         crear.setVisible(true);
     }//GEN-LAST:event_btnAddClienteActionPerformed
 
@@ -120,6 +131,11 @@ public class Administrador extends javax.swing.JFrame {
         CrearEmpleado crear = new CrearEmpleado();
         crear.setVisible(true);
     }//GEN-LAST:event_btnAddEmpleadoActionPerformed
+
+    private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
+        CrearCliente crear = new CrearCliente("Modificar");
+        crear.setVisible(true);
+    }//GEN-LAST:event_btnModificarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +175,7 @@ public class Administrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCliente;
     private javax.swing.JButton btnAddEmpleado;
+    private javax.swing.JButton btnModificarCliente;
     private javax.swing.JLabel lblAdministrador;
     private javax.swing.JLabel lblCantidadNum;
     private javax.swing.JLabel lblCantidadUsers;

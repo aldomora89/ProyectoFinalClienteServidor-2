@@ -29,7 +29,7 @@ public class CantidadDeUsuarios implements Runnable{
         while(true){
             try {
                 CoolRestRequest rest = new CoolRestRequest();
-                String resultado = rest.getResource(URLDefinition.Info.getUrl());
+                String resultado = rest.getResource(URLDefinition.Info.getUrl() + "?dato=" + "CantDeClientes");
                 int numero = new Gson().fromJson(resultado, int.class);
                 this.label.setText(String.valueOf(numero));
             } catch (InterruptedException ex) {

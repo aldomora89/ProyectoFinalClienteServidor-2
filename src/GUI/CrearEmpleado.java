@@ -151,8 +151,9 @@ public class CrearEmpleado extends javax.swing.JFrame {
             EmpleadoPOJO empleado = new EmpleadoPOJO(name, edad, id, salario);
             
             CoolRestRequest rest = new CoolRestRequest();
+            String resultado = rest.getResource(URLDefinition.Info.getUrl() + "?dato=" + "ExisteUsuario" + "&id=" + id);
+            System.out.println(resultado);
             
-            String resultado = rest.getResource(URLDefinition.Empleado.getUrl() + "?id=" + id);
             if(resultado.equals("Agregar")){
                 rest = new CoolRestRequest();
                 rest.postResource(URLDefinition.Empleado.getUrl(), new Gson().toJson(empleado));
