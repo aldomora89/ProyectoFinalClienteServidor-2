@@ -7,6 +7,7 @@ package GUI;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import javax.swing.JOptionPane;
 import proyectofinalclienteservidor.CantidadDeUsuarios;
 import proyectofinalclienteservidor.NivelDePermisos;
 import proyectofinalclienteservidor.UtilsCliente;
@@ -133,6 +134,7 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddEmpleadoActionPerformed
 
     private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
+        UtilsCliente.usuarioSeleccionado = JOptionPane.showInputDialog(this, "Seleccione");
         CrearCliente crear = new CrearCliente("Modificar");
         crear.setVisible(true);
     }//GEN-LAST:event_btnModificarClienteActionPerformed

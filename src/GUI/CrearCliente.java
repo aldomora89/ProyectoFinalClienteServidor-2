@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import proyectofinalclienteservidor.ClientePOJO;
 import proyectofinalclienteservidor.URLDefinition;
+import proyectofinalclienteservidor.UtilsCliente;
 
 /**
  *
@@ -27,7 +28,28 @@ public class CrearCliente extends javax.swing.JFrame {
      */
     public CrearCliente(String tipo) {
         initComponents();
+        this.lblRutina.setVisible(false);
+        this.btnRutina.setVisible(false);
         if(tipo.equals("Modificar")){
+            this.lblRutina.setVisible(true);
+            this.btnRutina.setVisible(true);
+            try {
+                CoolRestRequest rest = new CoolRestRequest();
+                String resultado = rest.getResource(URLDefinition.Cliente.getUrl() + "?id=" + UtilsCliente.usuarioSeleccionado);
+                ClientePOJO pojo = new Gson().fromJson(resultado, ClientePOJO.class);
+                this.txtFIdentificacion.setText(pojo.getId());
+                this.txtFIdentificacion.disable();
+                this.txtFName.setText(pojo.getName());
+                this.txtFEdad.setText(String.valueOf(pojo.getAge()));
+                this.txtFMesesEnElGym.setText(String.valueOf(pojo.getMesesEnGym()));
+                this.txtFTarifaMensual.setText(String.valueOf(pojo.getPrecioMensual()));
+                this.DateFechaDePago.setDate(pojo.getDate());
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ExecutionException ex) {
+                Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }
 
@@ -57,6 +79,7 @@ public class CrearCliente extends javax.swing.JFrame {
         DateFechaDePago = new com.toedter.calendar.JDateChooser();
         lblColones = new javax.swing.JLabel();
         btnCrearUser = new javax.swing.JButton();
+        btnCrearUser1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +125,13 @@ public class CrearCliente extends javax.swing.JFrame {
             }
         });
 
+        btnCrearUser1.setText("Modificar usuario");
+        btnCrearUser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearUser1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,11 +161,14 @@ public class CrearCliente extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtFTarifaMensual, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(txtFIdentificacion)
-                            .addComponent(btnCrearUser)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCrearUser1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCrearUser))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(lblNombreGrande, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +205,9 @@ public class CrearCliente extends javax.swing.JFrame {
                     .addComponent(lblRutina)
                     .addComponent(btnRutina))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCrearUser)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearUser)
+                    .addComponent(btnCrearUser1))
                 .addContainerGap())
         );
 
@@ -180,11 +215,12 @@ public class CrearCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaActionPerformed
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy");
+        /*SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy");
         System.out.println(this.DateFechaDePago.getDate() == null);
         Date fecha = this.DateFechaDePago.getDate();
         String strFecha = formatoFecha.format(fecha);
-        System.out.println(strFecha);
+        System.out.println(strFecha);*/
+        
     }//GEN-LAST:event_btnRutinaActionPerformed
 
     private void btnCrearUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUserActionPerformed
@@ -217,6 +253,38 @@ public class CrearCliente extends javax.swing.JFrame {
             Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnCrearUserActionPerformed
+
+    private void btnCrearUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUser1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            String id = this.txtFIdentificacion.getText();
+            int edad = Integer.parseInt(this.txtFEdad.getText());
+            String name = this.txtFName.getText();
+            int meses = Integer.parseInt(this.txtFMesesEnElGym.getText());
+            double tarifa = Double.parseDouble(this.txtFTarifaMensual.getText());
+            Date date = this.DateFechaDePago.getDate();
+            
+            ClientePOJO cliente = new ClientePOJO(name, edad, id, meses, tarifa, date);
+            
+            CoolRestRequest rest = new CoolRestRequest();
+            String resultado = rest.getResource(URLDefinition.Info.getUrl() + "?dato=" + "ExisteUsuario" + "&id=" + id);
+            System.out.println(resultado);
+            
+            if(resultado.equals("Agregar")){
+                JOptionPane.showMessageDialog(this, "El usuario no existe.");
+            } else{
+                rest = new CoolRestRequest();
+                rest.postResource(URLDefinition.ModificarCliente.getUrl(), new Gson().toJson(cliente));
+                JOptionPane.showMessageDialog(this, "El usuario ha sido modificado.");
+                this.dispose();
+            }
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCrearUser1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,6 +325,7 @@ public class CrearCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateFechaDePago;
     private javax.swing.JButton btnCrearUser;
+    private javax.swing.JButton btnCrearUser1;
     private javax.swing.JButton btnRutina;
     private javax.swing.JLabel lblColones;
     private javax.swing.JLabel lblEdad;
