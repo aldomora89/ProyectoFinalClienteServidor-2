@@ -48,7 +48,7 @@ public class CrearEmpleado extends javax.swing.JFrame {
         txtFSalario = new javax.swing.JTextField();
         btnCrearEmpleado = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblSalario.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblSalario.setText("Salario Mensual:");

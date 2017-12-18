@@ -51,7 +51,7 @@ public class AgregaEjercicio extends javax.swing.JFrame {
         txtFRepeticiones = new javax.swing.JTextField();
         lblPeso2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblTitulo.setFont(new java.awt.Font("Consolas", 3, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

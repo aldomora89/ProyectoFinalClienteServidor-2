@@ -33,10 +33,11 @@ public class Rutina extends javax.swing.JFrame {
      */
     public Rutina() {
         initComponents();
-        this.lblNombreDelCliente.setText(UtilsCliente.usuarioLogueado);
-        if(UtilsCliente.nivelDeUsuarioLogueado == NivelDePermisos.Cliente){
-            this.btnBorrar.setVisible(false);
-            this.btnPruebaAgregar.setVisible(false);
+        this.lblNombreDelCliente.setText(UtilsCliente.usuarioSeleccionado);
+        this.btnBorrar.setVisible(false);
+        this.btnPruebaAgregar.setVisible(false);
+        if(UtilsCliente.nivelDeUsuarioLogueado != NivelDePermisos.Cliente){
+            
         }
         
         
@@ -76,7 +77,7 @@ public class Rutina extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblCliente.setText("Cliente: ");
 
@@ -197,7 +198,6 @@ public class Rutina extends javax.swing.JFrame {
 
     private void btnRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarActionPerformed
         try {
-            // TODO add your handling code here:
             refrescar();
         } catch (InterruptedException ex) {
             Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);

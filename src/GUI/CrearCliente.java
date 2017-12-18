@@ -30,9 +30,12 @@ public class CrearCliente extends javax.swing.JFrame {
         initComponents();
         this.lblRutina.setVisible(false);
         this.btnRutina.setVisible(false);
+        this.btnModificarUser.setVisible(false);
         if(tipo.equals("Modificar")){
             this.lblRutina.setVisible(true);
             this.btnRutina.setVisible(true);
+            this.btnModificarUser.setVisible(true);
+            this.btnCrearUser.setVisible(false);
             try {
                 CoolRestRequest rest = new CoolRestRequest();
                 String resultado = rest.getResource(URLDefinition.Cliente.getUrl() + "?id=" + UtilsCliente.usuarioSeleccionado);
@@ -79,9 +82,9 @@ public class CrearCliente extends javax.swing.JFrame {
         DateFechaDePago = new com.toedter.calendar.JDateChooser();
         lblColones = new javax.swing.JLabel();
         btnCrearUser = new javax.swing.JButton();
-        btnCrearUser1 = new javax.swing.JButton();
+        btnModificarUser = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblIdentificacion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblIdentificacion.setText("Identificacion:");
@@ -125,10 +128,10 @@ public class CrearCliente extends javax.swing.JFrame {
             }
         });
 
-        btnCrearUser1.setText("Modificar usuario");
-        btnCrearUser1.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarUser.setText("Modificar usuario");
+        btnModificarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearUser1ActionPerformed(evt);
+                btnModificarUserActionPerformed(evt);
             }
         });
 
@@ -162,7 +165,7 @@ public class CrearCliente extends javax.swing.JFrame {
                                     .addComponent(txtFTarifaMensual, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(txtFIdentificacion)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCrearUser1)
+                                .addComponent(btnModificarUser)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCrearUser))))
                     .addGroup(layout.createSequentialGroup()
@@ -207,7 +210,7 @@ public class CrearCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearUser)
-                    .addComponent(btnCrearUser1))
+                    .addComponent(btnModificarUser))
                 .addContainerGap())
         );
 
@@ -254,7 +257,7 @@ public class CrearCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCrearUserActionPerformed
 
-    private void btnCrearUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUser1ActionPerformed
+    private void btnModificarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUserActionPerformed
         try {
             // TODO add your handling code here:
             String id = this.txtFIdentificacion.getText();
@@ -284,7 +287,7 @@ public class CrearCliente extends javax.swing.JFrame {
         } catch (ExecutionException ex) {
             Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnCrearUser1ActionPerformed
+    }//GEN-LAST:event_btnModificarUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,7 +328,7 @@ public class CrearCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateFechaDePago;
     private javax.swing.JButton btnCrearUser;
-    private javax.swing.JButton btnCrearUser1;
+    private javax.swing.JButton btnModificarUser;
     private javax.swing.JButton btnRutina;
     private javax.swing.JLabel lblColones;
     private javax.swing.JLabel lblEdad;

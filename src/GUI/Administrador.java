@@ -5,11 +5,17 @@
  */
 package GUI;
 
+import com.google.gson.Gson;
+import coolrest.CoolRestRequest;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import proyectofinalclienteservidor.CantidadDeUsuarios;
 import proyectofinalclienteservidor.NivelDePermisos;
+import proyectofinalclienteservidor.URLDefinition;
 import proyectofinalclienteservidor.UtilsCliente;
 
 /**
@@ -94,7 +100,7 @@ public class Administrador extends javax.swing.JFrame {
                             .addComponent(btnAddEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnModificarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblCantidadUsers)
@@ -134,9 +140,26 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddEmpleadoActionPerformed
 
     private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
-        UtilsCliente.usuarioSeleccionado = JOptionPane.showInputDialog(this, "Seleccione");
-        CrearCliente crear = new CrearCliente("Modificar");
-        crear.setVisible(true);
+        try {
+            CoolRestRequest rest = new CoolRestRequest();
+            String resultado = rest.getResource(URLDefinition.Info.getUrl() + "?dato=" + "listaUsuarios");
+            if(resultado.equals("NoHay")){
+                JOptionPane.showMessageDialog(this, "No hay usuarios para modificar.");
+            }else{
+                String[] arreglo = new Gson().fromJson(resultado, String[].class);
+                UtilsCliente.usuarioSeleccionado = (String) JOptionPane.showInputDialog(null, "Seleccione una carrera a cursar", "Carrera", JOptionPane.DEFAULT_OPTION, null, arreglo, arreglo[0]);
+                if(UtilsCliente.usuarioSeleccionado != null){
+                    CrearCliente crear = new CrearCliente("Modificar");
+                    crear.setVisible(true);
+                }
+                
+            }
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnModificarClienteActionPerformed
 
     /**
