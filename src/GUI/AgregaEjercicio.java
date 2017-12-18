@@ -26,6 +26,7 @@ public class AgregaEjercicio extends javax.swing.JFrame {
      */
     public AgregaEjercicio() {
         initComponents();
+        setLocationRelativeTo(null);
         this.lblUser.setText(UtilsCliente.usuarioSeleccionado);
     }
 

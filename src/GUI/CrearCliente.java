@@ -28,6 +28,7 @@ public class CrearCliente extends javax.swing.JFrame {
      */
     public CrearCliente(String tipo) {
         initComponents();
+        setLocationRelativeTo(null);
         this.lblRutina.setVisible(false);
         this.btnRutina.setVisible(false);
         this.btnModificarUser.setVisible(false);

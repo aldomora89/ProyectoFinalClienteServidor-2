@@ -25,6 +25,7 @@ public class CrearEmpleado extends javax.swing.JFrame {
      */
     public CrearEmpleado() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

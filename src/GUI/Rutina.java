@@ -31,6 +31,7 @@ public class Rutina extends javax.swing.JFrame {
      */
     public Rutina() {
         initComponents();
+        setLocationRelativeTo(null);
         this.lblNombreDelCliente.setText(UtilsCliente.usuarioSeleccionado);
         this.btnBorrar.setVisible(false);
         this.btnAgregar.setVisible(false);

@@ -2,12 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="Programacion II">
-            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/Administrador.java</file>
-        </group>
         <group>
             <file>file:/C:/Users/Juan%20Carlos%20Cortes/Documents/GitHub/ProyectoFinalClienteServidor-2/src/GUI/LogIn.java</file>
             <file>file:/C:/Users/Juan%20Carlos%20Cortes/Documents/GitHub/ProyectoFinalClienteServidor-2/src/proyectofinalclienteservidor/Utils.java</file>
+        </group>
+        <group name="Programacion II">
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/proyectofinalclienteservidor/Cliente.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/Administrador.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/Rutina.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/CrearEmpleado.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/proyectofinalclienteservidor/UtilsCliente.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/AgregaEjercicio.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/Cliente.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/CrearCliente.java</file>
+            <file>file:/Users/aldomora89/Documents/GitHub/ProyectoFinalClienteServidor%202/src/GUI/LogIn.java</file>
         </group>
     </open-files>
 </project-private>

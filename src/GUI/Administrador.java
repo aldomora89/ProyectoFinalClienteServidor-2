@@ -31,6 +31,7 @@ public class Administrador extends javax.swing.JFrame {
      */
     public Administrador() {
         initComponents();
+        setLocationRelativeTo(null);
         this.jButton1.setVisible(false);
         if(UtilsCliente.nivelDeUsuarioLogueado == NivelDePermisos.Empleado){
             this.lblAdministrador.setText("Empleado");

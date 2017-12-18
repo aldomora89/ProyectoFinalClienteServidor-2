@@ -25,6 +25,7 @@ public class Cliente extends javax.swing.JFrame {
      */
     public Cliente() throws InterruptedException, ExecutionException {
         initComponents();
+        setLocationRelativeTo(null);
         CoolRestRequest rest = new CoolRestRequest();
         String result = rest.getResource(URLDefinition.NormalUser.getUrl() + "?id=" + UtilsCliente.usuarioLogueado);
         ClientePOJO cliente = new Gson().fromJson(result, ClientePOJO.class);
