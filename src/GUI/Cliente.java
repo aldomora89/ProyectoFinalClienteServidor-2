@@ -53,6 +53,7 @@ public class Cliente extends javax.swing.JFrame {
         lblIDCambiar = new javax.swing.JLabel();
         lblNameCambiar = new javax.swing.JLabel();
         lblEdadCambiar = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +96,13 @@ public class Cliente extends javax.swing.JFrame {
         lblEdadCambiar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblEdadCambiar.setText("Edad:");
 
+        btnSalir.setText("Cerrar Sesión");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,6 +130,9 @@ public class Cliente extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblNombreGrande, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSalir))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +155,8 @@ public class Cliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRutina)
                     .addComponent(lblRutina))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(btnSalir))
         );
 
         pack();
@@ -159,6 +171,13 @@ public class Cliente extends javax.swing.JFrame {
     private void lblNombreGrandeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_lblNombreGrandeInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_lblNombreGrandeInputMethodTextChanged
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        LogIn abrirlogin = new LogIn();
+        abrirlogin.setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,6 +222,7 @@ public class Cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRutina;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEdadCambiar;
     private javax.swing.JLabel lblIDCambiar;

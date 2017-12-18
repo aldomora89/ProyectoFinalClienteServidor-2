@@ -59,7 +59,6 @@ public class Rutina extends javax.swing.JFrame {
         jScrollPane = new javax.swing.JScrollPane();
         tablaRutina = new javax.swing.JTable();
         btnRefrescar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         lblTituloGrande = new javax.swing.JLabel();
@@ -118,13 +117,6 @@ public class Rutina extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Prueba");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         btnBorrar.setText("Borrar");
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,9 +152,7 @@ public class Rutina extends javax.swing.JFrame {
                         .addComponent(btnAgregar)
                         .addGap(36, 36, 36)
                         .addComponent(btnBorrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(44, 44, 44))
+                        .addGap(129, 129, 129))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -188,8 +178,7 @@ public class Rutina extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
-                    .addComponent(btnBorrar)
-                    .addComponent(jButton2))
+                    .addComponent(btnBorrar))
                 .addGap(22, 22, 22))
         );
 
@@ -205,31 +194,6 @@ public class Rutina extends javax.swing.JFrame {
             Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnRefrescarActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        if(this.tablaRutina.getSelectedRow() == -1){
-            JOptionPane.showMessageDialog(null, "No selecciono ningun valor");
-        } else{
-            DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaRutina.getModel();
-            Object columna1 = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 0);
-            Object columna2 = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 1);
-            Object columna3 = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 2);
-            Object columna4 = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 3);
-            Object columna5 = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 4);
-            System.out.println(columna1);
-            System.out.println(columna2);
-            System.out.println(columna3);
-            System.out.println(columna4);
-            System.out.println(columna5);
-            System.out.println(columna1.getClass());
-            System.out.println(columna2.getClass());
-            System.out.println(columna3.getClass());
-            System.out.println(columna4.getClass());
-            System.out.println(columna5.getClass());    
-        }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         try {
@@ -331,7 +295,6 @@ public class Rutina extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnRefrescar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
