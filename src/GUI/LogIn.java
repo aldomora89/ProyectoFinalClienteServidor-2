@@ -6,6 +6,7 @@
 package GUI;
 
 import coolrest.CoolRestRequest;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,6 +55,17 @@ public class LogIn extends javax.swing.JFrame {
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogInActionPerformed(evt);
+            }
+        });
+
+        txtFPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFPasswordActionPerformed(evt);
+            }
+        });
+        txtFPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFPasswordKeyTyped(evt);
             }
         });
 
@@ -111,35 +123,46 @@ public class LogIn extends javax.swing.JFrame {
             CoolRestRequest rest = new CoolRestRequest();
             String info = rest.getResource(URLDefinition.Login.getUrl() + "?id=" + id + "&password=" + password);
             System.out.println(info);
-            
-            
-            if(info.equals("Administrador")){
+
+            if (info.equals("Administrador")) {
                 UtilsCliente.usuarioLogueado = id;
                 UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Administrador;
                 Administrador admin = new Administrador();
                 admin.setVisible(true);
                 this.dispose();
-            } else if(info.equals("Cliente")){
+            } else if (info.equals("Cliente")) {
                 UtilsCliente.usuarioLogueado = id;
                 UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Cliente;
                 Cliente cliente = new Cliente();
                 cliente.setVisible(true);
                 this.dispose();
-            } else if(info.equals("Empleado")){
+            } else if (info.equals("Empleado")) {
                 UtilsCliente.usuarioLogueado = id;
                 UtilsCliente.nivelDeUsuarioLogueado = NivelDePermisos.Empleado;
                 Administrador empleado = new Administrador();
                 empleado.setVisible(true);
                 this.dispose();
-            } else{
+            } else {
                 JOptionPane.showMessageDialog(this, info);
             }
-            
 
         } catch (Exception ex) {
             System.out.println("Algo dio error");
         }
     }//GEN-LAST:event_btnLogInActionPerformed
+
+    private void txtFPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFPasswordActionPerformed
+
+    private void txtFPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFPasswordKeyTyped
+        // Se activa boton de LogIn con la tecla enter
+        char cTeclaEnter = evt.getKeyChar();
+        if (cTeclaEnter == KeyEvent.VK_ENTER) {
+            btnLogIn.doClick();
+
+        }
+    }//GEN-LAST:event_txtFPasswordKeyTyped
 
     /**
      * @param args the command line arguments
