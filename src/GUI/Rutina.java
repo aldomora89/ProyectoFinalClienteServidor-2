@@ -35,9 +35,11 @@ public class Rutina extends javax.swing.JFrame {
         initComponents();
         this.lblNombreDelCliente.setText(UtilsCliente.usuarioSeleccionado);
         this.btnBorrar.setVisible(false);
-        this.btnPruebaAgregar.setVisible(false);
+        this.btnAgregar.setVisible(false);
+        
         if(UtilsCliente.nivelDeUsuarioLogueado != NivelDePermisos.Cliente){
-            
+            this.btnBorrar.setVisible(true);
+            this.btnAgregar.setVisible(true);
         }
         
         
@@ -61,7 +63,7 @@ public class Rutina extends javax.swing.JFrame {
         btnRefrescar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
-        btnPruebaAgregar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         lblTituloGrande = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -132,10 +134,10 @@ public class Rutina extends javax.swing.JFrame {
             }
         });
 
-        btnPruebaAgregar.setText("Agregar ejercicio Prueba");
-        btnPruebaAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setText("Agregar ejercicio");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPruebaAgregarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -157,7 +159,7 @@ public class Rutina extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnPruebaAgregar)
+                        .addComponent(btnAgregar)
                         .addGap(36, 36, 36)
                         .addComponent(btnBorrar)
                         .addGap(18, 18, 18)
@@ -187,7 +189,7 @@ public class Rutina extends javax.swing.JFrame {
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPruebaAgregar)
+                    .addComponent(btnAgregar)
                     .addComponent(btnBorrar)
                     .addComponent(jButton2))
                 .addGap(22, 22, 22))
@@ -242,11 +244,10 @@ public class Rutina extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBorrarActionPerformed
 
-    private void btnPruebaAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPruebaAgregarActionPerformed
-        // TODO add your handling code here:
-        //AgregaEjercicio addEjercicio = new AgregaEjercicio(UtilsCliente.usuarioLogueado, ejercicios);
-        //addEjercicio.setVisible(true);
-    }//GEN-LAST:event_btnPruebaAgregarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        AgregaEjercicio addEjercicio = new AgregaEjercicio();
+        addEjercicio.setVisible(true);
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,8 +312,8 @@ public class Rutina extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBorrar;
-    private javax.swing.JButton btnPruebaAgregar;
     private javax.swing.JButton btnRefrescar;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane;

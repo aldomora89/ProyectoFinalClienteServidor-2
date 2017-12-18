@@ -44,14 +44,19 @@
                           <Component id="txtFNombreDeEjercicio" max="32767" attributes="0"/>
                           <Component id="txtFNumeroDeMaquina" max="32767" attributes="0"/>
                           <Component id="txtFCategoria" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtFPeso" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtFRepeticiones" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="txtFPeso" min="-2" pref="155" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblPeso2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnPrueba" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAgregaEjercicio" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -60,9 +65,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblPeso2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -103,7 +106,7 @@
                   <Component id="txtFRepeticiones" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnPrueba" min="-2" max="-2" attributes="0"/>
+              <Component id="btnAgregaEjercicio" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -129,12 +132,12 @@
         <Property name="text" type="java.lang.String" value="&lt;user&gt;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnPrueba">
+    <Component class="javax.swing.JButton" name="btnAgregaEjercicio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Agrega ejercicio"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPruebaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregaEjercicioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombreDeEjercicio">

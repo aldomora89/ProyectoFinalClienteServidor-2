@@ -223,6 +223,8 @@ public class CrearCliente extends javax.swing.JFrame {
         Date fecha = this.DateFechaDePago.getDate();
         String strFecha = formatoFecha.format(fecha);
         System.out.println(strFecha);*/
+        Rutina rutinaPag = new Rutina();
+        rutinaPag.setVisible(true);
         
     }//GEN-LAST:event_btnRutinaActionPerformed
 

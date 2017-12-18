@@ -5,25 +5,28 @@
  */
 package GUI;
 
+import com.google.gson.Gson;
+import coolrest.CoolRestRequest;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyectofinalclienteservidor.Ejercicios;
+import proyectofinalclienteservidor.URLDefinition;
+import proyectofinalclienteservidor.UtilsCliente;
 
 /**
  *
  * @author Santiago
  */
 public class AgregaEjercicio extends javax.swing.JFrame {
-    private String user;
-    ArrayList<Ejercicios> ejercicios;
 
     /**
      * Creates new form AgregaEjercicio
      */
-    public AgregaEjercicio(String user, ArrayList<Ejercicios> ejercicios) {
-        this.user = user;
-        this.ejercicios = ejercicios;
+    public AgregaEjercicio() {
         initComponents();
-        this.lblUser.setText(user);
+        this.lblUser.setText(UtilsCliente.usuarioSeleccionado);
     }
 
     /**
@@ -38,7 +41,7 @@ public class AgregaEjercicio extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
-        btnPrueba = new javax.swing.JButton();
+        btnAgregaEjercicio = new javax.swing.JButton();
         lblNombreDeEjercicio = new javax.swing.JLabel();
         lblNumeroDeMaquina = new javax.swing.JLabel();
         lblCategoria = new javax.swing.JLabel();
@@ -61,10 +64,10 @@ public class AgregaEjercicio extends javax.swing.JFrame {
 
         lblUser.setText("<user>");
 
-        btnPrueba.setText("Agrega ejercicio");
-        btnPrueba.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregaEjercicio.setText("Agrega ejercicio");
+        btnAgregaEjercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPruebaActionPerformed(evt);
+                btnAgregaEjercicioActionPerformed(evt);
             }
         });
 
@@ -103,19 +106,21 @@ public class AgregaEjercicio extends javax.swing.JFrame {
                             .addComponent(txtFNombreDeEjercicio)
                             .addComponent(txtFNumeroDeMaquina)
                             .addComponent(txtFCategoria)
-                            .addComponent(txtFPeso)
-                            .addComponent(txtFRepeticiones)))
+                            .addComponent(txtFRepeticiones)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtFPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblPeso2)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnPrueba)
+                            .addComponent(btnAgregaEjercicio)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblUser)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPeso2)
-                .addGap(29, 29, 29))
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,24 +153,33 @@ public class AgregaEjercicio extends javax.swing.JFrame {
                     .addComponent(lblPeso1)
                     .addComponent(txtFRepeticiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPrueba)
+                .addComponent(btnAgregaEjercicio)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPruebaActionPerformed
-        // TODO add your handling code here:
-        double peso = Double.parseDouble(this.txtFPeso.getText());
-        int numMaquina = Integer.valueOf(this.txtFNumeroDeMaquina.getText());
-        String nombre = this.txtFNombreDeEjercicio.getText();
-        String categoria = this.txtFCategoria.getText();
-        String repeticiones = this.txtFRepeticiones.getText();
-        Ejercicios ejercicio3 = new Ejercicios("3",peso, numMaquina, nombre, categoria, repeticiones);
-        ejercicios.add(ejercicio3);
-        this.dispose();
-    }//GEN-LAST:event_btnPruebaActionPerformed
+    private void btnAgregaEjercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregaEjercicioActionPerformed
+        try {
+            // TODO add your handling code here:
+            double peso = Double.parseDouble(this.txtFPeso.getText());
+            int numMaquina = Integer.valueOf(this.txtFNumeroDeMaquina.getText());
+            String nombre = this.txtFNombreDeEjercicio.getText();
+            String categoria = this.txtFCategoria.getText();
+            String repeticiones = this.txtFRepeticiones.getText();
+            Ejercicios ejercicio = new Ejercicios(UtilsCliente.usuarioSeleccionado,peso, numMaquina,
+                    nombre, categoria, repeticiones);
+            
+            CoolRestRequest rest = new CoolRestRequest();
+            rest.postResource(URLDefinition.Rutina.getUrl(), new Gson().toJson(ejercicio));
+            this.dispose();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(AgregaEjercicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(AgregaEjercicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAgregaEjercicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,13 +211,13 @@ public class AgregaEjercicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregaEjercicio(null, null).setVisible(true);
+                new AgregaEjercicio().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPrueba;
+    private javax.swing.JButton btnAgregaEjercicio;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblNombreDeEjercicio;
     private javax.swing.JLabel lblNumeroDeMaquina;
