@@ -150,7 +150,7 @@ public class Rutina extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAgregar)
-                        .addGap(36, 36, 36)
+                        .addGap(69, 69, 69)
                         .addComponent(btnBorrar)
                         .addGap(129, 129, 129))
                     .addGroup(layout.createSequentialGroup()
