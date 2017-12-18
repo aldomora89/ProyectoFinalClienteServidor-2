@@ -147,7 +147,7 @@ public class Administrador extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No hay usuarios para modificar.");
             }else{
                 String[] arreglo = new Gson().fromJson(resultado, String[].class);
-                UtilsCliente.usuarioSeleccionado = (String) JOptionPane.showInputDialog(null, "Seleccione una carrera a cursar", "Carrera", JOptionPane.DEFAULT_OPTION, null, arreglo, arreglo[0]);
+                UtilsCliente.usuarioSeleccionado = (String) JOptionPane.showInputDialog(null, "Seleccione el usuario que desea modificar: ", "Usuario", JOptionPane.DEFAULT_OPTION, null, arreglo, arreglo[0]);
                 if(UtilsCliente.usuarioSeleccionado != null){
                     CrearCliente crear = new CrearCliente("Modificar");
                     crear.setVisible(true);

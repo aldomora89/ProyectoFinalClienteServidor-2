@@ -6,8 +6,6 @@
 package GUI;
 
 import com.google.gson.Gson;
-import java.lang.reflect.Type;
-import com.google.gson.reflect.TypeToken;
 import coolrest.CoolRestRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -235,7 +233,25 @@ public class Rutina extends javax.swing.JFrame {
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         try {
-            //ejercicios.remove(this.tablaRutina.getSelectedRow());
+            if(this.tablaRutina.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(null, "No selecciono ningun valor");
+            } else{
+                DefaultTableModel modeloTabla = (DefaultTableModel) this.tablaRutina.getModel();
+                Object nombreDeEjercicio = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 0);
+                Object maquina = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 1);
+                Object peso = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 2);
+                Object categoria = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 3);
+                Object repeticiones = modeloTabla.getValueAt(this.tablaRutina.getSelectedRow(), 4);
+                
+                Ejercicios ejercicio = new Ejercicios(UtilsCliente.usuarioSeleccionado, Double.parseDouble(String.valueOf(peso)),
+                                                      Integer.valueOf(String.valueOf(maquina)), String.valueOf(nombreDeEjercicio),
+                                                      String.valueOf(categoria), String.valueOf(repeticiones));
+                
+                CoolRestRequest rest = new CoolRestRequest();
+                rest.postResource(URLDefinition.EliminarRutinas.getUrl(), new Gson().toJson(ejercicio));
+                JOptionPane.showMessageDialog(this, "Se ha borrado el ejercicio seleccionado.");
+                   
+            }
             refrescar();
         } catch (InterruptedException ex) {
             Logger.getLogger(Rutina.class.getName()).log(Level.SEVERE, null, ex);
