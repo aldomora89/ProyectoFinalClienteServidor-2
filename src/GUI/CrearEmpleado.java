@@ -55,7 +55,7 @@ public class CrearEmpleado extends javax.swing.JFrame {
 
         lblNombreGrande.setFont(new java.awt.Font("Consolas", 3, 24)); // NOI18N
         lblNombreGrande.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombreGrande.setText("Crear Cliente");
+        lblNombreGrande.setText("Crear Empleado");
 
         lblIdentificacion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         lblIdentificacion.setText("Identificacion:");

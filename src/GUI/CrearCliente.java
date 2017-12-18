@@ -31,11 +31,13 @@ public class CrearCliente extends javax.swing.JFrame {
         this.lblRutina.setVisible(false);
         this.btnRutina.setVisible(false);
         this.btnModificarUser.setVisible(false);
+        this.btnEliminar.setVisible(false);
         if(tipo.equals("Modificar")){
             this.lblRutina.setVisible(true);
             this.btnRutina.setVisible(true);
             this.btnModificarUser.setVisible(true);
             this.btnCrearUser.setVisible(false);
+            this.btnEliminar.setVisible(true);
             try {
                 CoolRestRequest rest = new CoolRestRequest();
                 String resultado = rest.getResource(URLDefinition.Cliente.getUrl() + "?id=" + UtilsCliente.usuarioSeleccionado);
@@ -83,6 +85,7 @@ public class CrearCliente extends javax.swing.JFrame {
         lblColones = new javax.swing.JLabel();
         btnCrearUser = new javax.swing.JButton();
         btnModificarUser = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -135,6 +138,13 @@ public class CrearCliente extends javax.swing.JFrame {
             }
         });
 
+        btnEliminar.setText("Eliminar usuario");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,15 +152,20 @@ public class CrearCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblFechaDePago, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMeses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblFechaDePago, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblMeses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnEliminar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtFName, javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +225,8 @@ public class CrearCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearUser)
-                    .addComponent(btnModificarUser))
+                    .addComponent(btnModificarUser)
+                    .addComponent(btnEliminar))
                 .addContainerGap())
         );
 
@@ -291,6 +307,21 @@ public class CrearCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnModificarUserActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try {
+            ClientePOJO pojo = new ClientePOJO("", 0, UtilsCliente.usuarioSeleccionado,
+                                               0, 0, null);            
+            CoolRestRequest rest = new CoolRestRequest();
+            rest.postResource(URLDefinition.EliminarClientes.getUrl(), new Gson().toJson(pojo));
+            JOptionPane.showMessageDialog(this, "Se ha borrado el cliente.");
+            dispose();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(CrearCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -330,6 +361,7 @@ public class CrearCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateFechaDePago;
     private javax.swing.JButton btnCrearUser;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificarUser;
     private javax.swing.JButton btnRutina;
     private javax.swing.JLabel lblColones;

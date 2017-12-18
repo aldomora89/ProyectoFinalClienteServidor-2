@@ -26,15 +26,23 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lblFechaDePago" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblTarifa" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblEdad" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblIdentificacion" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lblMeses" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblName" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                          <Component id="lblRutina" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblFechaDePago" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="lblTarifa" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="lblEdad" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="lblIdentificacion" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="lblMeses" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblName" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                                  <Component id="lblRutina" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -112,6 +120,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCrearUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnModificarUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -226,6 +235,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarUserActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEliminar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar usuario"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
